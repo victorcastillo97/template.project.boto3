@@ -34,22 +34,6 @@ Proyecto base para trabajar con **AWS boto3** en Python, usando `.env` para cred
 
 ---
 
-## ▶️ Ejecutar **sin Docker** (modo local)
-
-1. Crear entorno virtual e instalar dependencias:
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate  # En Windows: .venv\Scripts\activate
-   pip install -r requirements.txt
-   ```
-
-2. Ejecutar:
-   ```bash
-   python src/main.py
-   ```
-
----
-
 ## 🐳 Ejecutar **con Docker** usando volumen (modo desarrollo recomendado)
 
 > Así no necesitas reconstruir la imagen cada vez que cambies el código.
@@ -66,6 +50,22 @@ docker run --rm   --env-file .env.example   -v "$(pwd)/src:/app/src"   boto3-sta
 
 - `-v $(pwd)/src:/app/src` monta tu carpeta local `src` dentro del contenedor.
 - Si cambias el código en tu máquina, el contenedor lo verá inmediatamente.
+
+---
+
+## ▶️ Ejecutar **sin Docker** (modo local)
+
+1. Crear entorno virtual e instalar dependencias:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # En Windows: .venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
+
+2. Ejecutar:
+   ```bash
+   python src/main.py
+   ```
 
 ---
 
