@@ -1,6 +1,8 @@
 import os
 import boto3
 from dotenv import load_dotenv
+import polars as pl
+
 
 # Cargar variables de entorno
 load_dotenv()
@@ -19,4 +21,6 @@ def list_buckets():
         print(f" - {bucket['Name']}")
 
 if __name__ == "__main__":
+    df = pl.scan_parquet("s3://s3-bucket-prod-lake-analytics/bd_bets/bets/year=2025/month=08/day=12/")
+    df.collect()
     list_buckets()
