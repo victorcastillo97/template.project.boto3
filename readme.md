@@ -61,7 +61,7 @@ docker build -t boto3-starter -f docker/Dockerfile .
 
 2. Ejecutar el contenedor montando la carpeta `src`:
 ```bash
-docker run --rm   --env-file .env   -v $(pwd)/src:/app/src   boto3-starter
+docker run --rm   --env-file .env.example   -v "$(pwd)/src:/app/src"   boto3-starter
 ```
 
 - `-v $(pwd)/src:/app/src` monta tu carpeta local `src` dentro del contenedor.

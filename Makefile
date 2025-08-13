@@ -1,11 +1,12 @@
+.DEFAULT_GOAL := help
+
 IMAGE_NAME = boto3-starter
 
 build:
 	docker build -t $(IMAGE_NAME) -f docker/Dockerfile .
 
-run:
-	docker run --rm --env-file .env.example -v $(PWD)/src:/app $(IMAGE_NAME)
+run-windows:
+	@ docker run --rm   --env-file .env   -v "$(CURDIR)/src:/app/src"   boto3-starter
 
-clean:
-	docker rm -f $(docker ps -aq) || true
-	docker rmi -f $(docker images -q $(IMAGE_NAME)) || true
+run: #run linux
+	@ docker run --rm   --env-file .env   -v "$(pwd)/src:/app/src"   boto3-starter
